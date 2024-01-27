@@ -3,9 +3,10 @@
 import createSupabaseServerClient from "@/lib/supabase/server";
 import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 
-export async function criarFilme(titulo: string, descricao: string, genero: string, ano: string, imagem: string){
-    const supabase = await createSupabaseServerClient();
-    const result = await supabase.from("filmes").insert({titulo,descricao,genero,ano,imagem}).single();
+export async function criarFilme(titulo: string, descricao: string, genero: string, ano: number, imagem: string){
+    const supabase = await createSupabaseServerClient();    
+    const { data: { user } } = await supabase.auth.getUser()
+    const result = await supabase.from("filmes").insert([{titulo,descricao,genero,ano,imagem,created_by:user?.id}]).single();
     revalidatePath("/filmes");
     return JSON.stringify(result);
 }

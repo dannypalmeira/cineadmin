@@ -53,24 +53,33 @@ export default function CreateForm() {
 		},
 	});
 
-	function onSubmit(data: z.infer<typeof FormSchema>) {
-		startTransition(async () =>{
-			const result = await criarFilme(data.titulo,data.descricao,data.genero,data.ano,data.imagem)
-			const { error } = JSON.parse(result);
-			
-			if (!error?.message){
+	async function onSubmit(data: z.infer<typeof FormSchema>) {
+		startTransition(async () => {
+			try {
+				const result = await criarFilme(data.titulo, data.descricao, data.genero, data.ano, data.imagem);
+				const { error } = JSON.parse(result);
+	
+				if (!error?.message) {
+					toast({
+						title: "Filme adicionado com sucesso.",
+						description: (
+							<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+								<code className="text-white">{data.titulo} is created</code>
+							</pre>
+						),
+					});
+					form.reset();
+				}
+			} catch (error) {
+				console.error("Error creating filme:", error);
 				toast({
-					title: "Filme adicionado com sucesso.",
-					description: (
-						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-							<code className="text-white">{data.titulo} is created</code>
-						</pre>
-					),
+					title: "Erro ao adicionar filme.",
+					description: "Ocorreu um erro durante a adição do filme. Por favor, tente novamente.",
 				});
-				form.reset();
-			}	
-		});		
+			}
+		});
 	}
+	
 	
 
 	return (
