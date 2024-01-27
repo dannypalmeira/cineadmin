@@ -63,7 +63,7 @@ export default function CreateForm() {
 					title: "Filme adicionado com sucesso.",
 					description: (
 						<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-							<code className="text-white">{data.titulo} is created</code>
+							<code className="text-white">{data.titulo} foi criado.</code>
 						</pre>
 					),
 				});
