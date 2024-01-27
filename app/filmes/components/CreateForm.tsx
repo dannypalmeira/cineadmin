@@ -101,7 +101,8 @@ export default function CreateForm() {
 					control={form.control}
 					name="descricao"
 					render={({ field }) => (
-						<FormItem>							
+						<FormItem>		
+							<FormLabel>Descrição</FormLabel>					
 							<FormControl>
 								<Input
 									placeholder="descrição"
@@ -118,6 +119,7 @@ export default function CreateForm() {
 					name="genero"
 					render={({ field }) => (
 						<FormItem>
+							<FormLabel>Genero</FormLabel>
 							<FormControl>
 								<Input
 									placeholder="genero"
@@ -134,6 +136,7 @@ export default function CreateForm() {
 					name="ano"
 					render={({ field }) => (
 						<FormItem>
+							<FormLabel>Ano</FormLabel>
 							<FormControl>
 								<Input
 									placeholder="ano"
@@ -150,6 +153,7 @@ export default function CreateForm() {
 					name="imagem"
 					render={({ field }) => (
 						<FormItem>
+							<FormLabel>Link Imagem</FormLabel>
 							<FormControl>
 								<Input
 									placeholder="imagem"
