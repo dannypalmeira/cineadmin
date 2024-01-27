@@ -16,12 +16,12 @@ export default async function Page() {
 	const {data:todos} = await lerFilme();
 
 	return (
-		<div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+		<div className="max-w-5xl w-full justify-between font-mono text-sm lg:flex">
 			<div className="mb-32 flex text-center lg:max-w-5xl">
 				<SignOut />
 				<CreateForm />
 				</div>
-				<div className="mb-32 grid text-center lg:max-w-5xl">
+				<div className="max-w-5xl w-full items-center">
 
 				{todos?.map((todo, index) => {
 
@@ -29,7 +29,7 @@ export default async function Page() {
 					const atualizarFilme = atualizarFilmeById.bind(null, todo.id,!todo.completed);
 
 					return (
-						<div key={index} className="flex items-center gap-6">
+						<div key={index} className="mb-32 flex items-center gap-6">
 							<div className="group rounded-lg border px-5 py-4 border-gray-300 bg-gray-100">
 							<img src={todo.imagem} />
 							<h2
