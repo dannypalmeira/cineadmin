@@ -5,6 +5,8 @@ import readUserSession from "@/lib/actions";
 import { redirect } from "next/navigation";
 import SignOut from "./components/SignOut";
 import { cancelarFilmeById, lerFilme, atualizarFilmeById } from "./actions";
+import SearchBar from "./components/Search";
+import { Form } from "@/components/ui/form";
 
 export default async function Page() {
 	const {data} = await readUserSession();
@@ -20,6 +22,7 @@ export default async function Page() {
 			<div className="mb-32 flex text-center lg:max-w-5xl">
 				<SignOut />
 				<CreateForm />
+				
 				</div>
 				<div className="max-w-5xl w-full items-center">
 
@@ -47,8 +50,7 @@ export default async function Page() {
 
 							<form action={atualizarFilme}>
 							<Button>Favorito</Button>								
-							</form>
-							
+							</form>							
 							
 						</div>
 					);

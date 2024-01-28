@@ -33,7 +33,7 @@ export async function atualizarFilmeById(id: string, completed: boolean) {
 
 export async function buscarFilme (){
     const supabase = await createSupabaseServerClient();
-    const { data: video, error } = await supabase
+    const { data: filmes, error } = await supabase
 .from('filmes')
 .select("*")
 // Filters

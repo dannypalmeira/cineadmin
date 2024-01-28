@@ -1,0 +1,49 @@
+.searchBar{
+    width: 10rem;
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.searchBar label{
+    position: absolute;
+    top:.4rem;
+    font-size: 1.5rem;
+    padding-left: .3rem;
+}
+
+.searchBar  input{
+    background-color: #2CEC65;
+    padding: .5rem 1rem .5rem 2.2rem;
+    font-size: 1rem;
+    border: none;
+    color: #05161e;
+    letter-spacing: 1px;
+    border-radius: 100px;
+    font-weight: 500;
+    transition: all 100ms ease-in-out;
+}
+
+
+
+
+.searchBar  input:focus-visible{
+    color: #2CEC65;
+    background-color: transparent;
+    outline: 1px #2CEC65 solid;
+}
+
+@media only screen and (max-width: 500px) {
+    .searchBar{
+    width: 12rem;
+
+    border-radius: 1px red solid;
+}
+
+.searchBar input{
+    width: 100%;
+}
+}
